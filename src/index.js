@@ -24,7 +24,7 @@ app.use(morgan('combined'));
 const hbs = handlebars.create({ extname: '.hbs' });
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
-      app.set("views", path.join(__dirname, 'resources/views'));
+app.set('views', path.join(__dirname, 'resources/views'));
 
 // Route Init
 route(app);
