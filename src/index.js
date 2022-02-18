@@ -28,11 +28,12 @@ app.use(morgan('combined'));
 const hbs = handlebars.create({ extname: '.hbs' });
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resources/views'));
+// app.set('views', path.join(__dirname, 'resources/views'));
+app.set('views', path.join(__dirname, 'resources', 'views'));
 
 // Route Init
 route(app);
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`App listening on port ${port} at http://localhost:${port}`);
 });
