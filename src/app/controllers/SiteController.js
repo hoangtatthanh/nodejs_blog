@@ -1,8 +1,5 @@
 const Course = require('../models/Course');
-const {
-    mongooseMultipleToObject,
-    multipleMongooseToObject,
-} = require('../../util/mongooes');
+const { multipleMongooseToObject } = require('../../util/mongooes');
 
 class SiteController {
     // [GET] /
