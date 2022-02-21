@@ -10,7 +10,7 @@
                 <th scope='col'>#</th>
                 <th scope='col'>Tên khóa học</th>
                 <th scope='col'>Mô tả</th>
-                <th scope='col' colspan='2'>Thời gian tạo</th>
+                <th scope='col' colspan='2'>Thời gian xóa</th>
 
             </tr>
         </thead>
@@ -20,7 +20,7 @@
                     <th scope='row'>{{sum @index 1}}</th>
                     <td>{{this.name}}</td>
                     <td>{{this.description}}</td>
-                    <td>{{this.createdAt}}</td>
+                    <td>{{this.deletedAt}}</td>
                     <td>
                         <a
                             href=''
@@ -96,9 +96,8 @@
     function(event){ var button = $(event.relatedTarget); courseId =
     button.data('id'); }); btnDeleteCourse.onclick = function () {
     deleteForm.action = '/courses/' + courseId + '/force?_method=DELETE';
-    deleteForm.submit(); } // Restore btn clicked restoreBtn.click(function(e){
-    e.preventDefault(); var courseId = $(this).data('id'); restoreForm.action =
-    '/courses/' + courseId + '/restore?_method=PATCH'; restoreForm.submit(); })
-    });
+    deleteForm.submit(); } restoreBtn.click(function(e){ e.preventDefault(); var
+    courseId = $(this).data('id'); restoreForm.action = '/courses/' + courseId +
+    '/restore?_method=PATCH'; restoreForm.submit(); }) });
 
 </script>
