@@ -129,29 +129,24 @@
 </form>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() { var courseId; var
-    deleteForm = document.forms['delete-course-form']; //var containerForm =
-    document.forms['container-form']; var containerForm =
+    document.addEventListener('DOMContentLoaded', function () { var courseId;
+    var deleteForm = document.forms['delete-course-form']; var containerForm =
     $('form[name="container-form"]'); var btnDeleteCourse =
     document.getElementById('btn-delete-course'); var checkboxAll =
     $('#checkbox-all'); var courseItemCheckbox =
     $('input[name="coursesIds[]"]'); var checkAllSubmitBtn =
-    $('.check-all-submit-btn'); // dialg confirm clicked
-    $('#deleteCourseModal').on('show.bs.modal', function(event){ var button =
-    $(event.relatedTarget); courseId = button.data('id'); }); // delete course
-    btn clicked btnDeleteCourse.onclick = function () { deleteForm.action =
-    '/courses/' + courseId + '?_method=DELETE'; deleteForm.submit(); } //
-    checkbox all clicked checkboxAll.change(function(){ var isCheckAll =
+    $('.check-all-submit-btn'); $('#deleteCourseModal').on('show.bs.modal',
+    function (event) { var button = $(event.relatedTarget); courseId =
+    button.data('id'); }); btnDeleteCourse.onclick = function () {
+    deleteForm.action = '/courses/' + courseId + '?_method=DELETE';
+    deleteForm.submit(); }; checkboxAll.change(function () { var isCheckAll =
     $(this).prop('checked'); courseItemCheckbox.prop('checked', isCheckAll);
-    renderCheckAllSubmitBtn(); }) // course item checkbox changed
-    courseItemCheckbox.change(function(){ var isCheckAll =
-    courseItemCheckbox.length ===
+    renderCheckAllSubmitBtn(); }); courseItemCheckbox.change(function () { var
+    isCheckAll = courseItemCheckbox.length ===
     $('input[name="coursesIds[]"]:checked').length; checkboxAll.prop('checked',
-    isCheckAll); renderCheckAllSubmitBtn(); }); // checkbox all submit button
-    clicked //containerForm.on('submit', function(e){ // var isSubmitable =
-    checkAllSubmitBtn.hasClass('disabled'); // if(isSubmitable){ //
-    e.preventDefault(); // } //}) function renderCheckAllSubmitBtn() { var
-    checkCount = $('input[name="coursesIds[]"]:checked').length; if(checkCount >
-    0) { checkAllSubmitBtn.attr('disabled', false); } else {
+    isCheckAll); renderCheckAllSubmitBtn(); }); function
+    renderCheckAllSubmitBtn() { var checkCount =
+    $('input[name="coursesIds[]"]:checked').length; if (checkCount > 0) {
+    checkAllSubmitBtn.attr('disabled', false); } else {
     checkAllSubmitBtn.attr('disabled', true); } } });
 </script>
